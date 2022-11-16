@@ -1,0 +1,40 @@
+# This workflow purely exists to help us test other workflows. It is required because we can't manually trigger a workflow if the `master` branch
+# doesn't contain a matching workflow definition that can be manually triggered.
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment
+        type: choice
+        default: qa115
+        required: true
+        options:
+          - qa101
+          - qa111
+          - qa114
+          - qa115
+          - qa116
+          - qa121
+          - qa122
+          - qa108
+          - qa112
+      build-type:
+        description: Build type
+        type: choice
+        default: prod
+        required: true
+        options:
+          - dev
+          - prod
+
+name: 👩‍🔬 Experiment
+concurrency: experiment
+
+jobs:
+  hello-world:
+    name: Hello World
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello World
+        run: echo Hello World!
