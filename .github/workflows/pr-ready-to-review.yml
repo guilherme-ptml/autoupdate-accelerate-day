@@ -1,0 +1,13 @@
+name: autoupdate in pr
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, reopened, synchronize, ready_for_review]
+
+jobs:
+  here:
+    name: here
+    runs-on: ubuntu-18.04
+    steps:
+      - run: echo HERE
