@@ -22,7 +22,7 @@ jobs:
 
           # The name of the PR author to enable automerge for
           # Defaults to dependabot[bot]
-          allowed-author: "guilherme-ptml,jonathandaza"
+          allowed-author: "jonathandaza"
 
           # Allowed values: MERGE | SQUASH | REBASE
           # Defaults to MERGE
