@@ -17,6 +17,7 @@ jobs:
         with:
           # A personal access token that you have generated and saved in the
           # repo or org’s encrypted secrets
+          # must be classic to have GraphQL permissions
           github-token: ${{ secrets.MY_CLASSIC_TOKEN }}
 
           # The name of the PR author to enable automerge for
