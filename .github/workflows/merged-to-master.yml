@@ -12,6 +12,7 @@ jobs:
       - name: AutoUpdate
         uses: docker://chinthakagodawita/autoupdate-action:v1
         env:
+          # needs GitHub PAT so that workflows are triggered as result of commits from auto update
           GITHUB_TOKEN: "${{ secrets.MY_TOKEN }}"
           DRY_RUN: "false"
           PR_FILTER: "labelled"
