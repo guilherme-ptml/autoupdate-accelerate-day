@@ -1,16 +1,18 @@
-name: enable automerge
+name: Pull request to main
 on:
   pull_request:
     branches:
       - main
-    types: [ready_for_review]
+
+concurrency:
+  group: "pp100"
 
 jobs:
   automerge:
-    name: Enable automerge
+    name: Enable AutoMerge
     runs-on: ubuntu-latest
     steps:
-      - name: Enable automerge on dependabot PRs
+      - name: Enable AutoMerge on PR
         uses: daneden/enable-automerge-action@v1
         with:
           # A personal access token that you have generated and saved in the
@@ -24,3 +26,12 @@ jobs:
           # Allowed values: MERGE | SQUASH | REBASE
           # Defaults to MERGE
           merge-method: MERGE
+
+  test-pp100:
+    name: Test pp100
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running pp100
+        shell: pwsh
+        run: |
+          Start-Sleep -Seconds 10
