@@ -5,9 +5,15 @@ on:
       - main
     types: [opened, reopened, synchronize, ready_for_review]
 
+concurrency:
+  group: "pp100"
+
 jobs:
-  here:
-    name: here
-    runs-on: ubuntu-18.04
+  test-pp100:
+    name: testing pp100
+    runs-on: ubuntu-latest
     steps:
-      - run: echo HERE
+      - name: testing pp100
+        shell: pwsh
+        run: |
+          Start-Sleep -Seconds 30
