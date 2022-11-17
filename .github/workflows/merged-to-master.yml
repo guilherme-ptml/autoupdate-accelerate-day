@@ -11,7 +11,8 @@ jobs:
     steps:
       - uses: docker://chinthakagodawita/autoupdate-action:v1
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          # GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.MY_TOKEN }}"
           DRY_RUN: "false"
           PR_FILTER: "labelled"
           PR_LABELS: "autoupdate,keep up-to-date"
