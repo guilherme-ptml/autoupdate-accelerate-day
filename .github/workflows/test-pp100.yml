@@ -28,6 +28,41 @@ jobs:
           # Defaults to MERGE
           merge-method: MERGE
 
+  run-cypress:
+    name: 🤖 Run Cypress tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Cypress tests BFF
+        shell: pwsh
+        run: |
+          Start-Sleep -Seconds 5
+
+  build-bff:
+    name: 🤗 Build & unit test BFF
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build & unit test BFF
+        shell: pwsh
+        run: |
+          Start-Sleep -Seconds 5
+
+  run-functional-automation:
+    name: 🔬 Functional tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Functional tests
+        shell: pwsh
+        run: |
+          Start-Sleep -Seconds 5
+
+  functional-tests-passed:
+    name: 🎉 Functional tests all passed
+    needs: [run-functional-automation]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'All functional tests passed'
+        shell: bash
+
   test-pp100:
     name: Test pp100
     runs-on: ubuntu-latest
